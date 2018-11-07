@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class FightersTest < ApplicationSystemTestCase
   setup do
-    @fighter = fighters(:one)
+    @fighter = fighters(:frodo)
   end
 
   test "visiting the index" do
