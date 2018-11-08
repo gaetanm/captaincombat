@@ -21,6 +21,9 @@ class FightersTest < ApplicationSystemTestCase
     fill_in "Attack", with: 50
     fill_in "Health", with: 50
     fill_in "Name", with: "Frodo"
+    select "Bastard Sword", from: "fighter[weapon_id]"
+    select "Wooden Shield", from: "fighter[shield_id]"
+
     click_on "Create Fighter"
 
     assert_text "Fighter was successfully created"
@@ -30,9 +33,11 @@ class FightersTest < ApplicationSystemTestCase
     visit fighters_url
     click_on "New Fighter"
 
-    fill_in "Attack", with: 0
-    fill_in "Health", with: 0
+    fill_in "Attack", with: ""
+    fill_in "Health", with: ""
     fill_in "Name", with: ""
+    select "Berserk Axe", from: "fighter[weapon_id]"
+    select "Berserk Shield", from: "fighter[shield_id]"
     click_on "Create Fighter"
 
     assert_text "prohibited this fighter from being saved"
@@ -43,6 +48,8 @@ class FightersTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Name", with: "Sauron"
+    select "Bastard Sword", from: "fighter[weapon_id]"
+    select "Wooden Shield", from: "fighter[shield_id]"
     click_on "Update Fighter"
 
     assert_text "Fighter was successfully updated"
@@ -53,8 +60,8 @@ class FightersTest < ApplicationSystemTestCase
     visit fighters_url
     click_on "Edit", match: :first
 
-    fill_in "Attack", with: 0
-    fill_in "Health", with: 0
+    fill_in "Attack", with: ""
+    fill_in "Health", with: ""
     fill_in "Name", with: ""
     click_on "Update Fighter"
 

@@ -1,6 +1,29 @@
 require "test_helper"
 
 class FighterTest < ActiveSupport::TestCase
+  # Instance methods
+
+  test "#stuff_weight" do
+    fighter = fighters(:guts)
+    assert_equal 50, fighter.stuff_weight
+
+    fighter.weapon_id = nil
+    fighter.shield_id = nil
+    assert_equal 0, fighter.stuff_weight
+  end
+
+  # Validations
+
+  test "total stuff weight cannot exceed the max authorized" do
+    fighter = fighters(:guts)
+    fighter.weapon = weapons(:moon_sword)
+    fighter.shield = shields(:berserk_shield)
+    refute fighter.valid?
+
+    fighter.weapon = weapons(:berserk_axe)
+    assert fighter.valid?
+  end
+
   test "total points used for each stat cannot exceed the max authorized" do
     Fighter.stub_const(:MAX_TOTAL_STAT_POINTS, 100) do
       fighter = Fighter.new(name: "Legolas", attack: 100, health: 100)

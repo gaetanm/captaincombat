@@ -26,6 +26,16 @@
     <%= form.number_field :health %>
   </div>
 
+  <div class="field">
+    <%= form.label :weapon %>
+    <%= form.select :weapon_id, weapons.collect { |w| [ "#{w.name} (#{w.weight} kg)", w.id ] }, { include_blank: true } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :shield %>
+    <%= form.select :shield_id, shields.collect { |s| [ "#{s.name} (#{s.weight} kg)", s.id ] }, { include_blank: true } %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
