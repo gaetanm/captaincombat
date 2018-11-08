@@ -3,8 +3,34 @@ require "test_helper"
 class FighterTest < ActiveSupport::TestCase
   # Instance methods
 
+  test "#alive?" do
+    fighter = fighters(:guts)
+    fighter.health = 1
+    assert fighter.alive?
+
+    fighter.health = -1
+    refute fighter.alive?
+  end
+
+  test "#total_attack" do
+    fighter = fighters(:guts)
+    fighter.attack = 20
+    fighter.weapon.attack = 10
+    fighter.shield.attack = 10
+
+    assert_equal 40, fighter.total_attack
+
+    fighter.attack = 0
+    fighter.weapon = nil
+    fighter.shield = nil
+
+    assert_equal 0, fighter.total_attack
+  end
+
   test "#stuff_weight" do
     fighter = fighters(:guts)
+    fighter.weapon.weight = 25
+    fighter.shield.weight = 25
     assert_equal 50, fighter.stuff_weight
 
     fighter.weapon_id = nil

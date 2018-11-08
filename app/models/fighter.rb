@@ -18,6 +18,14 @@ class Fighter < ApplicationRecord
     (weapon&.weight || 0) + (shield&.weight || 0)
   end
 
+  def alive?
+    health > 0
+  end
+
+  def total_attack
+    attack + (weapon&.attack || 0 ) + (shield&.attack || 0)
+  end
+
   private
 
   def total_stats_number_cannot_exceed_the_max_authorized
