@@ -1,0 +1,2 @@
+class Weapon < Stuff
+end

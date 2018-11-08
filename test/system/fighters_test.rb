@@ -11,7 +11,7 @@ class FightersTest < ApplicationSystemTestCase
     visit fighters_url
     click_on "Show", match: :first
 
-    assert_text "Name: Frodo"
+    assert_text "Name: Aragorn"
   end
 
   test "creating a Fighter" do

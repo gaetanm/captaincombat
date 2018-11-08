@@ -1,0 +1,20 @@
+moon_sword:
+  type: Weapon
+  name: Moon Sword
+  attack: 25
+  defense: 0
+  weight: 30
+
+berserk_axe:
+  type: Weapon
+  name: Berserk Axe
+  attack: 50
+  defense: -20
+  weight: 20
+
+bastard_sword:
+  type: Weapon
+  name: Bastard Sword
+  attack: 15
+  defense: 0
+  weight: 10

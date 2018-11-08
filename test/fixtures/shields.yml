@@ -1,0 +1,22 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+knight_shield:
+  type: Shield
+  name: Knight Shield
+  attack: 0
+  defense: 20
+  weight: 20
+
+wooden_shield:
+  type: Shield
+  name: Wooden Shield
+  attack: 0
+  defense: 10
+  weight: 10
+
+berserk_shield:
+  type: Shield
+  name: Berserk Shield
+  attack: 10
+  defense: 5
+  weight: 30

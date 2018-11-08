@@ -10,12 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_07_140943) do
+ActiveRecord::Schema.define(version: 2018_11_08_130321) do
 
   create_table "fighters", force: :cascade do |t|
     t.string "name"
     t.integer "attack", default: 0
     t.integer "health", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "weapon_id"
+    t.integer "shield_id"
+    t.index ["shield_id"], name: "index_fighters_on_shield_id"
+    t.index ["weapon_id"], name: "index_fighters_on_weapon_id"
+  end
+
+  create_table "stuffs", force: :cascade do |t|
+    t.string "name"
+    t.string "type", null: false
+    t.integer "attack", default: 0
+    t.integer "defense", default: 0
+    t.integer "weight", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

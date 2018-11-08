@@ -9,3 +9,24 @@ gandalf:
   name: Gandalf
   attack: 50
   health: 20
+
+guts:
+  name: Guts
+  attack: 40
+  health: 60
+  weapon: berserk_axe
+  shield: berserk_shield
+
+aragorn:
+  name: Aragorn
+  attack: 50
+  health: 50
+  weapon: bastard_sword
+  shield: wooden_shield
+
+artorias:
+  name: Artorias
+  attack: 60
+  health: 40
+  weapon: moon_sword
+  shield: knight_shield
