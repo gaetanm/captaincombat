@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_08_130321) do
+ActiveRecord::Schema.define(version: 2018_11_08_160842) do
 
   create_table "fighters", force: :cascade do |t|
     t.string "name"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 2018_11_08_130321) do
     t.index ["weapon_id"], name: "index_fighters_on_weapon_id"
   end
 
+  create_table "fights", force: :cascade do |t|
+    t.integer "winner_id"
+    t.integer "loser_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["loser_id"], name: "index_fights_on_loser_id"
+    t.index ["winner_id"], name: "index_fights_on_winner_id"
+  end
+
   create_table "stuffs", force: :cascade do |t|
     t.string "name"
     t.string "type", null: false
@@ -32,6 +41,26 @@ ActiveRecord::Schema.define(version: 2018_11_08_130321) do
     t.integer "weight", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "turns", force: :cascade do |t|
+    t.integer "fight_id"
+    t.integer "initiator_id"
+    t.integer "target_id"
+    t.integer "action"
+    t.integer "initiator_final_health"
+    t.integer "target_final_health"
+    t.integer "initiator_inflicted_damage"
+    t.integer "target_inflicted_damage"
+    t.string "initiator_weapon_used"
+    t.string "target_weapon_used"
+    t.string "initiator_shield_used"
+    t.string "target_shield_used"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fight_id"], name: "index_turns_on_fight_id"
+    t.index ["initiator_id"], name: "index_turns_on_initiator_id"
+    t.index ["target_id"], name: "index_turns_on_target_id"
   end
 
 end

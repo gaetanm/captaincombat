@@ -2,8 +2,11 @@ class Fighter < ApplicationRecord
   MAX_TOTAL_STAT_POINTS = 100
   MAX_STUFF_WEIGHT = 50
 
-  belongs_to :weapon, class_name: "Stuff", optional: true, foreign_key: "weapon_id"
-  belongs_to :shield, class_name: "Stuff", optional: true, foreign_key: "shield_id"
+  belongs_to :weapon, class_name: "Stuff", optional: true
+  belongs_to :shield, class_name: "Stuff", optional: true
+
+  has_many :fights
+  has_many :turns
 
   validates :name, length: { maximum: 32 }, presence: true
   validates :attack, :health, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: MAX_TOTAL_STAT_POINTS }
