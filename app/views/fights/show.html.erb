@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<h1>The winner is <%= @fight.winner_name %></h1>
+<h1><%= @fight.vs_title %></h1>
 
-<h2>Fight summary</h2>
+<h2>The winner is <%= @fight.winner_name %></h2>
+
+<h3>Fight summary</h3>
 
 <%= fight_sequence(@fight) %>
 
