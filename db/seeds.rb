@@ -17,3 +17,6 @@ berserk_shield = Shield.create(name: "Berserk Shield", attack: 10, defense: 5, w
 guts = Fighter.create(name: "Guts", attack: "10", defense: "60", weapon: berserk_axe, shield: berserk_shield)
 aragorn = Fighter.create(name: "Aragorn", attack: "50", defense: "50", weapon: bastard_sword, shield: wooden_shield)
 artorias = Fighter.create(name: "Artorias", attack: "60", defense: "40", weapon: moon_sword, shield: knight_shield)
+
+FightService.call(guts, aragorn).save
+FightService.call(guts, artorias).save
