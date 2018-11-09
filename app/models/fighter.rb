@@ -16,6 +16,19 @@ class Fighter < ApplicationRecord
 
   before_save :set_health
 
+  def receive_attack(damage:, critical:)
+    if critical
+      self.health -= damage
+    else
+      damage_received = damage - total_defense
+      self.health -= damage_received if damage_received > 0
+    end
+  end
+
+  def dead?
+    !alive?
+  end
+
   def alive?
     health > 0
   end

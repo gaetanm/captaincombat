@@ -3,6 +3,18 @@ require "test_helper"
 class FighterTest < ActiveSupport::TestCase
   # Instance methods
 
+  test "#receive_attack" do
+    fighter = fighters(:artorias)
+    fighter.health = 100
+    fighter.defense = 80
+
+    fighter.receive_attack(damage: 75, critical: false)
+    assert_equal 100, fighter.health
+
+    fighter.receive_attack(damage: 75, critical: true)
+    assert_equal 25, fighter.health
+  end
+
   test "#alive?" do
     fighter = fighters(:guts)
     fighter.health = 1
