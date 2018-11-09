@@ -5,8 +5,12 @@ class Fighter < ApplicationRecord
   belongs_to :weapon, class_name: "Stuff", optional: true
   belongs_to :shield, class_name: "Stuff", optional: true
 
-  has_many :fights
+  has_many :won_fights, class_name: "Fight", foreign_key: :winner_id
+  has_many :lost_fights, class_name: "Fight", foreign_key: :loser_id
   has_many :turns
+
+  delegate :name, to: :weapon, prefix: true, allow_nil: true
+  delegate :name, to: :shield, prefix: true, allow_nil: true
 
   validates :name, length: { maximum: 32 }, presence: true
   validates :attack, :defense, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: MAX_TOTAL_STAT_POINTS }
@@ -15,6 +19,22 @@ class Fighter < ApplicationRecord
   validate :stuff_total_weight_cannot_exceed_the_max_authorized, if: -> { weapon.present? || shield.present? }
 
   before_save :set_health
+
+  def win_ratio
+    (victories.to_f / fights.count.to_f).round(1)
+  end
+
+  def fights
+    won_fights + lost_fights
+  end
+
+  def victories
+    won_fights.count
+  end
+
+  def defeats
+    lost_fights.count
+  end
 
   def receive_attack(damage:, critical:)
     if critical

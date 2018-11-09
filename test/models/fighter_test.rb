@@ -3,6 +3,31 @@ require "test_helper"
 class FighterTest < ActiveSupport::TestCase
   # Instance methods
 
+  test "#win_ratio" do
+    guts = fighters(:guts)
+    aragorn = fighters(:aragorn)
+    Fight.create(winner: aragorn, loser: guts)
+
+    assert_equal 0.5, guts.win_ratio
+    assert_equal 0.5, aragorn.win_ratio
+  end
+
+  test "#victories" do
+    guts = fighters(:guts)
+    aragorn = fighters(:aragorn)
+
+    assert_equal 1, guts.victories
+    assert_equal 0, aragorn.victories
+  end
+
+  test "#defeats" do
+    guts = fighters(:guts)
+    aragorn = fighters(:aragorn)
+
+    assert_equal 0, guts.defeats
+    assert_equal 1, aragorn.defeats
+  end
+
   test "#receive_attack" do
     fighter = fighters(:artorias)
     fighter.health = 100
