@@ -19,7 +19,7 @@ class FightersTest < ApplicationSystemTestCase
     click_on "New Fighter"
 
     fill_in "Attack", with: 50
-    fill_in "Health", with: 50
+    fill_in "Defense", with: 50
     fill_in "Name", with: "Frodo"
     select "Bastard Sword", from: "fighter[weapon_id]"
     select "Wooden Shield", from: "fighter[shield_id]"
@@ -34,7 +34,7 @@ class FightersTest < ApplicationSystemTestCase
     click_on "New Fighter"
 
     fill_in "Attack", with: ""
-    fill_in "Health", with: ""
+    fill_in "Defense", with: ""
     fill_in "Name", with: ""
     select "Berserk Axe", from: "fighter[weapon_id]"
     select "Berserk Shield", from: "fighter[shield_id]"
@@ -61,7 +61,7 @@ class FightersTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Attack", with: ""
-    fill_in "Health", with: ""
+    fill_in "Defense", with: ""
     fill_in "Name", with: ""
     click_on "Update Fighter"
 

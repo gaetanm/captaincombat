@@ -2,31 +2,36 @@
 
 frodo:
   name: Frodo
+  health: 100
   attack: 20
-  health: 80
+  defense: 80
 
 gandalf:
   name: Gandalf
+  health: 100
   attack: 50
-  health: 20
+  defense: 20
 
 guts:
   name: Guts
+  health: 100
   attack: 40
-  health: 60
+  defense: 60
   weapon: berserk_axe
   shield: berserk_shield
 
 aragorn:
   name: Aragorn
+  health: 100
   attack: 50
-  health: 50
+  defense: 50
   weapon: bastard_sword
   shield: wooden_shield
 
 artorias:
   name: Artorias
+  health: 100
   attack: 60
-  health: 40
+  defense: 40
   weapon: moon_sword
   shield: knight_shield

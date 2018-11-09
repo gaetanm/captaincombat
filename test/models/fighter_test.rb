@@ -12,6 +12,20 @@ class FighterTest < ActiveSupport::TestCase
     refute fighter.alive?
   end
 
+  test "#total_defense" do
+    fighter = fighters(:guts)
+    fighter.defense = 50
+    fighter.weapon.defense = 10
+    fighter.shield.defense = 10
+
+    assert_equal 70, fighter.total_defense
+
+    fighter.weapon = nil
+    fighter.shield = nil
+
+    assert_equal 50, fighter.total_defense
+  end
+
   test "#total_attack" do
     fighter = fighters(:guts)
     fighter.attack = 20
@@ -40,7 +54,7 @@ class FighterTest < ActiveSupport::TestCase
 
   # Validations
 
-  test "total stuff weight cannot exceed the max authorized" do
+  test "stuff total weight cannot exceed the max authorized" do
     fighter = fighters(:guts)
     fighter.weapon = weapons(:moon_sword)
     fighter.shield = shields(:berserk_shield)
@@ -52,28 +66,28 @@ class FighterTest < ActiveSupport::TestCase
 
   test "total points used for each stat cannot exceed the max authorized" do
     Fighter.stub_const(:MAX_TOTAL_STAT_POINTS, 100) do
-      fighter = Fighter.new(name: "Legolas", attack: 100, health: 100)
+      fighter = Fighter.new(name: "Legolas", attack: 100, defense: 100)
       refute fighter.valid?
       assert_includes fighter.errors.full_messages, "Total points for stats can't exceed 100"
 
       fighter.attack = 80
-      fighter.health = 20
+      fighter.defense = 20
       assert fighter.valid?
     end
   end
 
-  test "health value should be between 1 and the max of total stat points authorized" do
-    fighter = Fighter.new(health: 0, attack: 50, name: 'Frodo')
+  test "defense value should be between 1 and the max of total stat points authorized" do
+    fighter = Fighter.new(defense: 0, attack: 50, name: 'Frodo')
     refute fighter.valid?
-    fighter.health = 101
+    fighter.defense = 101
     refute fighter.valid?
 
-    fighter.health = 2
+    fighter.defense = 2
     assert fighter.valid?
   end
 
   test "attack value should be between 1 and the max of total stat points authorized" do
-    fighter = Fighter.new(attack: 0, health: 50, name: 'Frodo')
+    fighter = Fighter.new(attack: 0, defense: 50, name: 'Frodo')
     refute fighter.valid?
     fighter.attack = 101
     refute fighter.valid?

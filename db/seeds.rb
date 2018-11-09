@@ -14,6 +14,6 @@ knight_shield = Shield.create(name: "Knight Shield", attack: 0, defense: 20, wei
 wooden_shield = Shield.create(name: "Wooden Shield", attack: 0, defense: 10, weight: 10)
 berserk_shield = Shield.create(name: "Berserk Shield", attack: 10, defense: 5, weight: 30)
 
-guts = Fighter.create(name: "Guts", attack: "40", health: "60", weapon: berserk_axe, shield: berserk_shield)
-aragorn = Fighter.create(name: "Aragorn", attack: "50", health: "50", weapon: bastard_sword, shield: wooden_shield)
-artorias = Fighter.create(name: "Artorias", attack: "60", health: "40", weapon: moon_sword, shield: knight_shield)
+guts = Fighter.create(name: "Guts", attack: "10", defense: "60", weapon: berserk_axe, shield: berserk_shield)
+aragorn = Fighter.create(name: "Aragorn", attack: "50", defense: "50", weapon: bastard_sword, shield: wooden_shield)
+artorias = Fighter.create(name: "Artorias", attack: "60", defense: "40", weapon: moon_sword, shield: knight_shield)
