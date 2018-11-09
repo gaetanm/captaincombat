@@ -1,29 +1,9 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  fight: one
-  initiator: one
-  target: one
-  action: 1
-  initiator_final_health: 1
-  target_final_health: 1
-  initiator_inflicted_damage: 1
-  target_inflicted_damage: 1
-  initiator_weapon_used: MyString
-  target_weapon_used: MyString
-  initiator_shield_used: MyString
-  target_shield_used: MyString
-
-two:
-  fight: two
-  initiator: two
-  target: two
-  action: 1
-  initiator_final_health: 1
-  target_final_health: 1
-  initiator_inflicted_damage: 1
-  target_inflicted_damage: 1
-  initiator_weapon_used: MyString
-  target_weapon_used: MyString
-  initiator_shield_used: MyString
-  target_shield_used: MyString
+guts_as_initiator:
+  initiator: guts
+  target: aragorn
+  action: Turn.actions[:attack]
+  initiator_weapon_used: Berserk Axe
+  target_shield_used: Wooden Shield
+  initiator_total_attack: guts.total_attack
+  target_total_defense: aragorn.total_defense
+  target_health_before_attack: argorn.health

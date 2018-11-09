@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_09_133137) do
+ActiveRecord::Schema.define(version: 2018_11_09_141652) do
 
   create_table "fighters", force: :cascade do |t|
     t.string "name"
@@ -49,16 +49,14 @@ ActiveRecord::Schema.define(version: 2018_11_09_133137) do
     t.integer "initiator_id"
     t.integer "target_id"
     t.integer "action"
-    t.integer "initiator_final_health"
-    t.integer "target_final_health"
-    t.integer "initiator_inflicted_damage"
-    t.integer "target_inflicted_damage"
     t.string "initiator_weapon_used"
-    t.string "target_weapon_used"
-    t.string "initiator_shield_used"
     t.string "target_shield_used"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "initiator_total_attack"
+    t.integer "target_total_defense"
+    t.integer "target_health_before_attack"
+    t.boolean "critical_attack", default: false
     t.index ["fight_id"], name: "index_turns_on_fight_id"
     t.index ["initiator_id"], name: "index_turns_on_initiator_id"
     t.index ["target_id"], name: "index_turns_on_target_id"
