@@ -4,30 +4,7 @@
 
 <h2>Fight summary</h2>
 
-<% @fight.turns.each do |turn| %>
-  <% if turn.critical_attack %>
-    <%= turn.initiator_name %> <%= Turn.actions.key(turn.action)%> <%= turn.target_name %> with his <%= turn.initiator_weapon_used %> for a total CRITICAL attack of <%= turn.initiator_total_attack %>.
-    <br />
-    <%= turn.target_name %> takes <%= turn.damage_given %> because the attack was critical.
-  <% else %>
-    <%= turn.initiator_name %> <%= Turn.actions.key(turn.action)%> <%= turn.target_name %> with his <%= turn.initiator_weapon_used %> for a total attack of <%= turn.initiator_total_attack %>.
-    <br />
-    <%= turn.target_name %> defends himself with his <%= turn.target_shield_used %> for a total defense of <%= turn.target_total_defense %>. He takes <%= turn.damage_given %> damage.
-  <% end %>
-  <%= turn.target_name %> health is now <%= turn.target_health_after_attack %>.
-  <br />
-  <br />
-<% end %>
-
-<!--t.string "initiator_weapon_used"-->
-<!--t.string "target_shield_used"-->
-<!--t.integer "initiator_total_attack"-->
-<!--t.integer "target_total_defense"-->
-<!--t.integer "target_health_before_attack"-->
-
-<!--puts initiator.name + " attack " + target.name + " with a total attack of " + initiator.total_attack.to_s-->
-<!--puts target.name + " defends himself by blocking " + target.total_defense.to_s + "damage. So " + target.name + " losts " + damage_received.to_s-->
-
+<%= fight_sequence(@fight) %>
 
 <%= link_to 'Edit', edit_fight_path(@fight) %> |
 <%= link_to 'Back', fights_path %>
