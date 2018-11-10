@@ -3,6 +3,24 @@ require "test_helper"
 class FighterTest < ActiveSupport::TestCase
   # Instance methods
 
+  test "gain_victory_experience" do
+    guts = fighters(:guts)
+    guts.experience = 10
+
+    guts.gain_victory_experience
+
+    assert_equal 20, guts.experience
+  end
+
+  test "gain_defeat_experience" do
+    guts = fighters(:guts)
+    guts.experience = 10
+
+    guts.gain_defeat_experience
+
+    assert_equal 15, guts.experience
+  end
+
   test "#win_ratio" do
     guts = fighters(:guts)
     aragorn = fighters(:aragorn)

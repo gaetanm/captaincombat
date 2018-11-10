@@ -10,6 +10,16 @@ class FightService
   end
 
   def call
+    start_fight
+    set_winner_and_loser
+    add_experience_to_fighters
+
+    @fight
+  end
+
+  private
+
+  def start_fight
     while @fighter_one.alive? && @fighter_two.alive?
       fighters  = assign_role_to_fighters
       target    = fighters[:target]
@@ -19,13 +29,17 @@ class FightService
       build_turn initiator, target, critical_attack
       target.receive_attack(damage: initiator.total_attack, critical: critical_attack)
     end
-
-    @fight.winner = [@fighter_one, @fighter_two].find(&:alive?)
-    @fight.loser = [@fighter_one, @fighter_two].find(&:dead?)
-    @fight
   end
 
-  private
+  def set_winner_and_loser
+    @fight.winner = [@fighter_one, @fighter_two].find(&:alive?)
+    @fight.loser = [@fighter_one, @fighter_two].find(&:dead?)
+  end
+
+  def add_experience_to_fighters
+    @fight.winner.gain_victory_experience
+    @fight.loser.gain_defeat_experience
+  end
 
   def assign_role_to_fighters
     roles = {}

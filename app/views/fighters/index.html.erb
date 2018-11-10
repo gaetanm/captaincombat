@@ -16,6 +16,7 @@
       <th>Shield</th>
       <th>Total Attack</th>
       <th>Total Defense</th>
+      <th>Experience</th>
       <th colspan="11"></th>
     </tr>
   </thead>
@@ -34,6 +35,7 @@
         <td><%= fighter.shield_name %></td>
         <td><%= fighter.total_attack %></td>
         <td><%= fighter.total_defense %></td>
+        <td><%= fighter.experience %></td>
         <td><%= link_to 'Show', fighter %></td>
         <td><%= link_to 'Edit', edit_fighter_path(fighter) %></td>
         <td><%= link_to 'Destroy', fighter, method: :delete, data: { confirm: 'Are you sure?' } %></td>

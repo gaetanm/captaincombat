@@ -20,6 +20,14 @@ class Fighter < ApplicationRecord
 
   before_save :set_health
 
+  def gain_victory_experience
+    self.experience += 10
+  end
+
+  def gain_defeat_experience
+    self.experience += 5
+  end
+
   def win_ratio
     (victories.to_f / fights.count.to_f).round(1)
   end
