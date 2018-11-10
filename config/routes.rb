@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "fights#index"
+  root "static_pages#index"
 
   resources :fighters
   resources :fights
