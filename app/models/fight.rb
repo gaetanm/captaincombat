@@ -7,6 +7,14 @@ class Fight < ApplicationRecord
   delegate :name, to: :winner, prefix: true, allow_nil: true
   delegate :name, to: :loser, prefix: true, allow_nil: true
 
+  def winner_name
+    winner&.name || "Deleted Fighter"
+  end
+
+  def loser_name
+    loser&.name || "Deleted Fighter"
+  end
+
   def vs_title
     winner_name + " versus " + loser_name
   end

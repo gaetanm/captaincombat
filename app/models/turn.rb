@@ -8,6 +8,14 @@ class Turn < ApplicationRecord
   delegate :name, to: :initiator, prefix: true, allow_nil: true
   delegate :name, to: :target, prefix: true, allow_nil: true
 
+  def initiator_name
+    initiator&.name || "Deleted Fighter"
+  end
+
+  def target_name
+    target&.name || "Deleted Fighter"
+  end
+
   def damage_given
     if critical_attack
       initiator_total_attack

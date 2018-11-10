@@ -5,9 +5,8 @@ class Fighter < ApplicationRecord
   belongs_to :weapon, class_name: "Stuff", optional: true
   belongs_to :shield, class_name: "Stuff", optional: true
 
-  has_many :won_fights, class_name: "Fight", foreign_key: :winner_id
-  has_many :lost_fights, class_name: "Fight", foreign_key: :loser_id
-  has_many :turns
+  has_many :won_fights, class_name: "Fight", foreign_key: :winner_id, dependent: :nullify
+  has_many :lost_fights, class_name: "Fight", foreign_key: :loser_id, dependent: :nullify
 
   delegate :name, to: :weapon, prefix: true, allow_nil: true
   delegate :name, to: :shield, prefix: true, allow_nil: true
