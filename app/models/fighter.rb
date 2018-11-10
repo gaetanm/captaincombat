@@ -28,6 +28,7 @@ class Fighter < ApplicationRecord
   end
 
   def win_ratio
+    return 0 if victories == 0 && defeats == 0
     (victories.to_f / fights.count.to_f).round(1)
   end
 

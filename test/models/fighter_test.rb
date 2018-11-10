@@ -26,7 +26,7 @@ class FighterTest < ActiveSupport::TestCase
     aragorn = fighters(:aragorn)
     Fight.create(winner: aragorn, loser: guts)
 
-    assert_equal 0.5, guts.win_ratio
+    assert_equal 0.7, guts.win_ratio
     assert_equal 0.5, aragorn.win_ratio
   end
 
@@ -34,7 +34,7 @@ class FighterTest < ActiveSupport::TestCase
     guts = fighters(:guts)
     aragorn = fighters(:aragorn)
 
-    assert_equal 1, guts.victories
+    assert_equal 2, guts.victories
     assert_equal 0, aragorn.victories
   end
 

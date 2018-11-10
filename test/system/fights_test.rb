@@ -31,13 +31,4 @@ class FightsTest < ApplicationSystemTestCase
 
     assert_text "The winner is "
   end
-
-  test "destroying a Fight" do
-    visit fights_url
-    page.accept_confirm do
-      click_on "Destroy", match: :first
-    end
-
-    assert_text "Fight was successfully destroyed"
-  end
 end

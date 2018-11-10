@@ -1,3 +1,9 @@
+<p>
+  - A total of <%= Fighter::MAX_TOTAL_STAT_POINTS %> points can be used in the stats.
+  <br />
+  - The total weigh of the stuff carried by the fighter can't exceed <%= Fighter::MAX_STUFF_WEIGHT %>.
+</p>
+
 <%= form_with(model: fighter, local: true) do |form| %>
   <% if fighter.errors.any? %>
     <div id="error_explanation">
