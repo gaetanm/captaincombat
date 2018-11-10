@@ -3,3 +3,7 @@
 guts_vs_aragorn:
   winner: guts
   loser: aragorn
+
+guts_vs_artorias:
+  winner: guts
+  loser: artorias

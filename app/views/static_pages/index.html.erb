@@ -1,3 +1,9 @@
 <h1>Welcome to CaptainCombat!</h1>
 
 <p>Discover a new experience to let of steam! <strong><%= link_to "Let\'s fight", new_fight_path %></strong>!</p>
+
+<h2>Last fight</h2>
+
+<% if @fight %>
+  <%= link_to @fight.vs_title , fight_path(@fight) %>
+<% end %>
