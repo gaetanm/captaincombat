@@ -6,18 +6,10 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Attack</th>
-      <th>Health</th>
-      <th>Defense</th>
       <th>Victories</th>
       <th>Defeats</th>
-      <th>V/D Ratio</th>
-      <th>Weapon</th>
-      <th>Shield</th>
-      <th>Total Attack</th>
-      <th>Total Defense</th>
-      <th>Experience</th>
-      <th colspan="11"></th>
+      <th>Win Ratio</th>
+      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -25,17 +17,9 @@
     <% @fighters.each do |fighter| %>
       <tr>
         <td><%= fighter.name %></td>
-        <td><%= fighter.attack %></td>
-        <td><%= fighter.health %></td>
-        <td><%= fighter.defense %></td>
         <td><%= fighter.victories %></td>
         <td><%= fighter.defeats %></td>
         <td><%= fighter.win_ratio %></td>
-        <td><%= fighter.weapon_name %></td>
-        <td><%= fighter.shield_name %></td>
-        <td><%= fighter.total_attack %></td>
-        <td><%= fighter.total_defense %></td>
-        <td><%= fighter.experience %></td>
         <td><%= link_to 'Show', fighter %></td>
         <td><%= link_to 'Edit', edit_fighter_path(fighter) %></td>
         <td><%= link_to 'Destroy', fighter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
