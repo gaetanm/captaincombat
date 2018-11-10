@@ -53,7 +53,7 @@ class FightersController < ApplicationController
   private
 
   def set_fighter
-    @fighter = Fighter.find(params[:id])
+    @fighter = Fighter.includes(:lost_fights, :won_fights).find(params[:id])
   end
 
   def fetch_stuff

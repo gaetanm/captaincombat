@@ -1,19 +1,54 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @fighter.name %>
-</p>
+<h1><%= @fighter.name %></h1>
 
-<p>
-  <strong>Attack:</strong>
-  <%= @fighter.attack %>
-</p>
+<h2>Stats</h2>
+<table>
+  <tr>
+    <td>Experience</td><td><%= @fighter.experience %></td>
+  </tr>
+  <tr>
+    <td>Attack</td><td><%= @fighter.attack %></td>
+  </tr>
+  <tr>
+    <td>Health</td><td><%= @fighter.attack %></td>
+  </tr>
+  <tr>
+    <td>Defense</td><td><%= @fighter.defense %></td>
+  </tr>
+  <tr>
+    <td>V/D Ratio</td><td><%= @fighter.win_ratio %></td>
+  </tr>
+  <tr>
+    <td>Victories</td><td><%= @fighter.victories %></td>
+  </tr>
+  <tr>
+    <td>Defeats</td><td><%= @fighter.defeats %></td>
+  </tr>
+  <tr>
+    <td>Victories</td><td><%= @fighter.victories %></td>
+  </tr>
+  <tr>
+    <td>Weapon</td><td><%= @fighter.weapon_name %></td>
+  </tr>
+  <tr>
+    <td>Shield</td><td><%= @fighter.shield_name %></td>
+  </tr>
+  <tr>
+    <td>Total attack</td><td><%= @fighter.total_attack %></td>
+  </tr>
+  <tr>
+    <td>Total defense</td><td><%= @fighter.total_defense %></td>
+  </tr>
+</table>
 
-<p>
-  <strong>Health:</strong>
-  <%= @fighter.health %>
-</p>
+<h2>Fights history</h2>
+<% @fighter.fights.each do |f| %>
+  <%= link_to f.vs_title, fight_path(f) %>
+  <br />
+<% end %>
+
+<br />
 
 <%= link_to 'Edit', edit_fighter_path(@fighter) %> |
 <%= link_to 'Back', fighters_path %>
