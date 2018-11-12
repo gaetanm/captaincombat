@@ -6,19 +6,6 @@ class FightsTest < ApplicationSystemTestCase
     assert_selector "h1", text: "Fights"
   end
 
-  test "showing a Fight with a deleted Fighter" do
-    fight = fights(:guts_vs_aragorn)
-    fight.winner.delete
-    visit fight_url(fight)
-
-    assert_text "Deleted Fighter"
-
-    fight.loser.delete
-    visit fight_url(fight)
-
-    assert_text "Deleted Fighter"
-  end
-
   test "creating a Fight" do
     visit fights_url
 
