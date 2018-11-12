@@ -1,6 +1,6 @@
 module FightsHelper
   def fight_title(fight)
-   link_to(fight.winner_name, fight.winner) + " versus " + link_to(fight.loser_name, fight.loser)
+   name_or_url(fight.winner) + " versus " + name_or_url(fight.loser)
   end
 
   def fight_sequence(fight)
@@ -10,6 +10,10 @@ module FightsHelper
   end
 
   private
+
+  def name_or_url(fighter)
+    fighter.is_a?(FighterNullObject) ? fighter.name : link_to(fighter.name, fighter)
+  end
 
   def describe_turn(turn)
     description = if turn.critical_attack?

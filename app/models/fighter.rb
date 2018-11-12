@@ -1,6 +1,7 @@
 class Fighter < ApplicationRecord
   MAX_TOTAL_STAT_POINTS = 100
   MAX_STUFF_WEIGHT = 50
+  DEFAULT_AVATAR_IMG = "avatar.jpg"
 
   has_one_attached :avatar
 
