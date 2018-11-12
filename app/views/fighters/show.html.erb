@@ -2,6 +2,8 @@
 
 <h1><%= @fighter.name %></h1>
 
+<%= fighter_avatar(@fighter) %>
+
 <h2>Stats</h2>
 <table>
   <tr>
@@ -35,10 +37,10 @@
     <td>Shield</td><td><%= @fighter.shield_name %></td>
   </tr>
   <tr>
-    <td>Total attack</td><td><%= @fighter.total_attack %></td>
+    <td>Total Attack</td><td><%= @fighter.total_attack %></td>
   </tr>
   <tr>
-    <td>Total defense</td><td><%= @fighter.total_defense %></td>
+    <td>Total Defense</td><td><%= @fighter.total_defense %></td>
   </tr>
 </table>
 

@@ -24,6 +24,7 @@ class FightersTest < ApplicationSystemTestCase
     fill_in "Name", with: "Frodo"
     select "Bastard Sword", from: "fighter[weapon_id]"
     select "Wooden Shield", from: "fighter[shield_id]"
+    attach_file("fighter[avatar]", Rails.root + "test/fixtures/files/guts.jpg")
 
     click_on "Create Fighter"
 

@@ -2,6 +2,8 @@ class Fighter < ApplicationRecord
   MAX_TOTAL_STAT_POINTS = 100
   MAX_STUFF_WEIGHT = 50
 
+  has_one_attached :avatar
+
   belongs_to :weapon, class_name: "Stuff", optional: true
   belongs_to :shield, class_name: "Stuff", optional: true
 
