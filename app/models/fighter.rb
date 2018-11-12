@@ -84,6 +84,17 @@ class Fighter < ApplicationRecord
     attack + stuff_total_attack
   end
 
+  module NullObjects
+    def weapon
+      super || WeaponNullObject.new
+    end
+
+    def shield
+      super || ShieldNullObject.new
+    end
+  end
+  include NullObjects
+
   private
 
   def set_health
@@ -91,11 +102,11 @@ class Fighter < ApplicationRecord
   end
 
   def stuff_total_defense
-    (weapon&.defense || 0) + (shield&.defense || 0)
+    weapon.defense + shield.defense
   end
 
   def stuff_total_attack
-    (weapon&.attack || 0 ) + (shield&.attack || 0)
+    weapon.attack  + shield.attack
   end
 
   def total_stats_number_cannot_exceed_the_max_authorized
