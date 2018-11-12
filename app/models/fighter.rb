@@ -19,6 +19,14 @@ class Fighter < ApplicationRecord
 
   before_save :set_health
 
+  def weapon_name
+    weapon&.name || "No Weapon"
+  end
+
+  def shield_name
+    shield&.name || "No Shield"
+  end
+
   def gain_victory_experience
     self.experience += 10
   end

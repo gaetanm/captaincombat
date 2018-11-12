@@ -12,6 +12,7 @@ class FightersTest < ApplicationSystemTestCase
     click_on "Show", match: :first
 
     assert_text "Aragorn"
+    assert_text "Guts versus Aragorn"
   end
 
   test "creating a Fighter" do

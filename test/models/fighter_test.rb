@@ -3,7 +3,21 @@ require "test_helper"
 class FighterTest < ActiveSupport::TestCase
   # Instance methods
 
-  test "gain_victory_experience" do
+  test "#weapon_name" do
+    guts = fighters(:guts)
+    guts.weapon = nil
+
+    assert_equal "No Weapon", guts.weapon_name
+  end
+
+  test "#shield_name" do
+    guts = fighters(:guts)
+    guts.shield = nil
+
+    assert_equal "No Shield", guts.shield_name
+  end
+
+  test "#gain_victory_experience" do
     guts = fighters(:guts)
     guts.experience = 10
 
@@ -12,7 +26,7 @@ class FighterTest < ActiveSupport::TestCase
     assert_equal 20, guts.experience
   end
 
-  test "gain_defeat_experience" do
+  test "#gain_defeat_experience" do
     guts = fighters(:guts)
     guts.experience = 10
 
