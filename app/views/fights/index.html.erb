@@ -12,7 +12,7 @@
   <tbody>
     <% @fights.each do |fight| %>
       <tr>
-        <td><%= fight.vs_title %></td>
+        <td><%= fight_title(fight) %></td>
         <td><%= link_to 'Show', fight %></td>
       </tr>
     <% end %>

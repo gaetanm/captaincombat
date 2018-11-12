@@ -1,4 +1,8 @@
 module FightsHelper
+  def fight_title(fight)
+   link_to(fight.winner_name, fight.winner) + " versus " + link_to(fight.loser_name, fight.loser)
+  end
+
   def fight_sequence(fight)
     sequence = ""
     fight.turns.each { |turn| sequence += describe_turn(turn) }

@@ -45,8 +45,8 @@
 </table>
 
 <h2>Fights history</h2>
-<% @fighter.fights.each do |f| %>
-  <%= link_to f.vs_title, fight_path(f) %>
+<% @fighter.fights.each do |fight| %>
+  <%= link_to fight_title(fight), fight_path(fight) %>
   <br />
 <% end %>
 

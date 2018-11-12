@@ -14,8 +14,4 @@ class Fight < ApplicationRecord
   def loser_name
     loser&.name || "Deleted Fighter"
   end
-
-  def vs_title
-    winner_name + " versus " + loser_name
-  end
 end
